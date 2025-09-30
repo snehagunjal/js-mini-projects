@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            background-color: black;
+        }
+
+        button {
+            padding: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 1.4em;
+            box-shadow: 5px 4px 3px gray;
+            border: 2px solid white;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            outline: none;
+            /* Button ke focus outline ko hata diya gaya hai */
+        }
+        </style>
+<body>
+    <button id="btn">Change background color</button>
+    <script>
+        const btn = document.getElementById("btn");
+
+        let randomnum = () => {
+            return Math.floor(Math.random()*256);
+        }
+
+        let changeclr = () => {
+            let randomclr = `rgb(${randomnum()}, ${randomnum()}, ${randomnum()})`;
+
+            document.body.style.backgroundColor = randomclr;
+        }
+
+        btn.addEventListener('click', changeclr);
+        
+        window.addEventListener('load', changeclr);
+        
+    </script>
+</body>
+</html>

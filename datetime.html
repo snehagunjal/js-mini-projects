@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ffdde1, #ee9ca7);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .clock {
+            background: #fff0f5;
+            padding: 20px 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 2px solid pink;
+        }
+
+        #time {
+            font-size: 40px;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        #date {
+            font-size: 20px;
+            color: #d87093;
+        }
+
+        .clock::after {
+            content: "⏰";
+            display: block;
+            font-size: 30px;
+            margin-top: 10px;
+            color: #ff69b4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="clock">
+        <div id="time">00:00:00</div>
+        <div id="date">Loading date..</div>
+    </div>
+
+    <script>
+        function format() {
+            const now = new Date();
+
+            const time = now.toLocaleTimeString();
+            const date = now.toDateString();
+
+            document.getElementById("time").textContent = time;
+            document.getElementById("date").textContent = date;
+        }
+
+        setInterval(format, 1000);
+        format();
+    </script>
+
+</body>
+
+</html>
