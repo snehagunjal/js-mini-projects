@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Method</title>
+</head>
+
+<body>
+    <Script>
+        let car = ["Ford", "Honda", "BMW", "Porsche", "VolksWagon", "Creta"];
+
+        function menu() {
+            let choice = prompt(
+                `Array Methods: 
+                1. Show Array
+                2. Add Items at end(Push)
+                3. Adds items at start (unshift)
+                4. Removes Last element (pop)
+                5. Removes first element (shift)
+                6. Check item exists (includes)
+                7. Replace Items (Splice)
+                8. Slice a portion of the array(Slice)
+                9. reverse the array
+                10. Sort the array
+                11. Merge with another array
+                0. Exit `
+            );
+            switch (choice) {
+                case "1":
+                    alert("Array: " + car.join(", "))
+                    break;
+                case "2":
+                    let end = prompt("Enter car to add at the end:");
+                    car.push(end);
+                    break;
+                case "3":
+                    let start = prompt("Enter car to add at start:")
+                    car.unshift(start);
+                    break;
+                case "4":
+                    let removeend = car.pop()
+                    alert('Removed ', removeend);
+                    break;
+                case "5":
+                    let removefirst = car.shift();
+                    alert("Removed ", removefirst);
+
+                case "6":
+                    let check = prompt("Enter item to check: ");
+                    alert(arr.includes(check) ? "Exists!" : "Not found!")
+                    break;
+
+                case "7":
+                    let index = parseInt(prompt("Start index to replace: "));
+                    let del = parseInt(prompt("Enter index to remove: "));
+                    let newitem = prompt("Enter new car name separated by comma(,): ")
+                    arr.splice(index, del, ...newItem);
+                    break;
+
+                case "8":
+                    let s = parseInt(prompt("Start index: "));
+                    let e = parseInt(prompt("End Index: "))
+                    alert('sliced Array: ' + car.slice(s, e).join(", "))
+                    break;
+
+                case "9":
+                    car.reverse();
+                    alert("Reversed array: ", car.join(", "))
+                    break;
+
+                case "10":
+                    car.sort()
+                    alert("Sorted Array: ", car.join(", "))
+                    break;
+
+                case "11":
+                    let arr2 = prompt("Enter another name of car using(,)").split(", ")
+                    car = arr2.concat(arr2)
+                    alert("Merged array: ", car.join(", "))
+                    break;
+
+                    case "0":
+                        return;
+                        
+            }
+            menu();
+        }
+        menu();
+    </Script>
+</body>
+
+</html>
