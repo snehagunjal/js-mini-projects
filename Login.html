@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Logout System</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 0 0 15px 0;
+            text-decoration: underline;
+        }
+
+        button {
+            padding: 8px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px black;
+        }
+
+        button:hover {
+            background-color: lightblue;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 10px;
+            box-shadow: 2px 4px 5px black;
+        }
+
+        .box img {
+            display: block;
+            margin: 10px auto;
+            height: 60px;
+            width: auto;
+            border-radius: 10px;
+        }
+
+
+        .box {
+            border: 2px solid black;
+            padding: 20px;
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 2px 4px 10px gray;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Login Message Generator</h2>
+        <img src="https://static.vecteezy.com/system/resources/previews/021/919/677/non_2x/login-icon-in-trendy-flat-style-isolated-on-white-background-approach-symbol-for-your-web-site-design-logo-app-ui-illustration-eps10-flat-style-for-graphic-design-vector.jpg"
+            alt="Logout Icon">
+        <input type="text" id="username" placeholder="Enter your Username">
+        <button onclick="handleLogin()">Login</button>
+
+        <p id="message"></p>
+
+        <script>
+            function loginUserMessage(username = "Anonymous") {
+                if (username.trim() === "") {
+                    return "Please enter a username!";
+                } else {
+                    return `${username} just logged in.`;
+                }
+            }
+
+
+            function handleLogin() {
+                const userInput = document.getElementById("username").value;
+                const msg = loginUserMessage(userInput);
+                document.getElementById("message").textContent = msg;
+            }
+        </script>
+    </div>
+</body>
+
+</html>
