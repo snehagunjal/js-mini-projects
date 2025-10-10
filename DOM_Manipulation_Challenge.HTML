@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+
+<body>
+    <h1 id="heading">Hello DOM(Document Object Model)</h1>
+    <p class="p1">This is the Paragragh about DOM Manipulation</p>
+
+    <ul id="list">
+        <li>HTML</li>
+        <LI>CSS</LI>
+        <LI>JavaScript</LI>
+    </ul>
+
+    <img id="image"
+        src="https://cdn.royalcanin-weshare-online.io/WWkRPmYBG95Xk-RB2d3n/v1/ec2h-does-a-cat-fit-with-your-lifestyle-hero-cat"
+        width="300px" alt="">
+    <br>
+
+    <button onclick="changeHeading()">Change Heading</button>
+    <button onclick="colorchange()">Change paragraphcolor</button>
+    <button onclick="additem()">Add List Item</button>
+    <button onclick="hideimg()">Hide Image</button>
+
+    <script>
+        //Heading change
+        function changeHeading() {
+            document.getElementById("heading").innerHTML = "DOM <i>Updated</i> Successfully";
+        }
+
+        //Paragraph color change
+        function colorchange() {
+            let x = document.getElementsByClassName("p1");
+            x[0].style.color = "red"
+        }
+
+        //Add new item list
+        //appendChild() used to add a new child node to the end of the list of children of a specified parent node.
+        function additem(){
+            let ul = document.querySelector("#list");
+            let newitem = document.createElement("li");
+            newitem.textContent = "ReactJS"
+ul.appendChild(newitem);
+        }
+
+        //Hide Image using queryselector()
+        function hideimg(){
+            let y = document.querySelector("#image");
+            y.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
