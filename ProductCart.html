@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .banner{
+            text-align: center;
+            background-color: yellow;
+            padding: 5px;
+            color: red;
+            font-weight: bold;
+        }
+        .product-cart{
+            margin-top: 10px;
+            border: 3px solid red;
+            border-radius: 20px;
+            display: inline-block;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="shop">
+        <div class="product-cart" id="product1">
+            <h3>Wireless Headphone</h3>
+            <p>Noise Canselling, 20 hours battery life</p>
+            <button>Buy Now</button>
+        </div>
+    </div>
+
+    <script>
+        const shop = document.getElementById("shop");
+        const original = document.getElementById("product1");
+
+        //Cloning the product card
+        const clone = original.cloneNode(true); //deep clone includes all the element 
+        clone.querySelector("h3").textContext = "Bluetooth Speaker";
+        clone.querySelector("p").textContext = "Portable, deep bass, 10 hours playtime"
+        shop.appendChild(clone);
+
+        //Replace old product description with a new one 
+        const pro = document.createElement("p");
+        pro.textContent = "Premium sound quality, now with fast charging!";
+        const oldpro = original.querySelector("p");
+        original.replaceChild(pro, oldpro);
+
+        //Insert promotional banner before products
+        shop.insertAdjacentHTML("beforebegin", `<div class="banner">Big Diwali Sale - Up tp 50% off!</div>`)
+    </script>
+</body>
+
+</html>

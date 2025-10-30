@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Event Project</title>
+      <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+
+<body>
+    <section class="reveal" style="background:#5f2c82;">Welcome to My Page</section>
+    <section class="reveal" style="background:#49a09d;">Scroll Down to Reveal</section>
+    <section class="reveal" style="background:#ef3b36;">Scroll Down to Reveal</section>
+    <section class="reveal" style="background:#1f4037;">just learned scroll events!</section>
+
+    <script>
+// Function to check scroll position 
+function revealOnScroll(){
+    const reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach((el) => {
+        const windowHeight = window.innerHeight; //it helps us know how tall the visible area is.
+        
+        const elementTop = el.getBoundingClientRect().top; //How far is the top edge of this element’s box from the top of the screen right now?
+
+        const revealPoint = 150; //When the element is 150 pixels away from coming into view, the animation begins.
+
+        if(elementTop < windowHeight - revealPoint) {
+            el.classList.add("visible");
+        } else{
+            el.classList.remove("visible");
+        }
+    });
+}
+
+
+//run on scroll
+window.addEventListener("scroll", revealOnScroll);
+
+//run once on load (for elements already in view
+revealOnScroll();
+    </script>
+</body>
+
+</html>
