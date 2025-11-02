@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        margin-top: 60px;
+        background-color: black;
+        color: white;
+    }
+
+    h1 {
+        font-family: cursive;
+    }
+
+    #increase,
+    #decrease {
+        padding: 10px;
+        width: 40px;
+        font-size: 26px;
+        margin: 0 6px;
+        cursor: pointer;
+        background-color: red;
+        border-radius: 10px;
+        color: white;
+    }
+
+    #reset {
+        padding: 10px;
+        color: white;
+        font-size: 20px;
+        margin: 0 6px;
+        cursor: pointer;
+        background-color: rgb(4, 197, 4);
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <h1>Counter</h1>
+    <h2 id="count">0</h2>
+    <button id="decrease">-</button>
+    <button id="reset">Reset</button>
+    <button id="increase">+</button>
+
+    <script>
+
+        //get element
+        const countel = document.getElementById('count');
+        const inc = document.getElementById("increase");
+        const dec = document.getElementById('decrease');
+        const reset = document.getElementById('reset')
+
+        let count = 0; //starting number
+
+        //increase
+        inc.addEventListener('click', () => {
+            count++;
+            countel.textContent = count;
+        });
+
+        //decrease
+        dec.addEventListener('click', () => {
+            count--;
+            countel.textContent = count;
+        });
+
+        //reset
+        reset.addEventListener('click', () => {
+            count = 0;
+            countel.textContent = count;
+        });
+    </script>
+</body>
+
+</html>

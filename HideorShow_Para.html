@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide/Show</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        font-size: 20px;
+        margin-top: 70px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    button{
+        padding: 10px;
+        width: 80px;
+        border-radius: 20px;
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        box-shadow: 3px 2px 5px gray, 2px 4px 5px black;
+    }
+
+    button:focus{
+        border-color: whitesmoke;
+    }
+</style>
+<body>
+    <h2>Hide / Show Paragraph</h2>
+    <button id="togglebtn">Hide</button>
+    <p id="mypara">Lorem ipsum dolor sit amet consectetur.lorem4</p>
+
+    <script>
+        const btn = document.getElementById("togglebtn");
+        const para = document.getElementById("mypara");
+       
+        
+        btn.addEventListener("click", () =>{
+            if(para.style.display === 'none'){
+                para.style.display = 'block';
+                btn.textContent = 'Hide';
+            }
+            else{
+                para.style.display = "none";
+                btn.textContent = 'Show';
+            }
+        });
+
+
+        btn.addEventListener("focus", ()=>{
+            btn.classList.add('focused');
+        });
+
+         btn.addEventListener("focus", ()=>{
+            btn.classList.remove('focused');
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(23, 23, 23);
+            color: white;
+            justify-content: center;
+            margin: auto;
+            width: 290px;
+            font-family: cursive;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 5px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: yellow;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Live text Updater</h2>
+    <input type="text" id="inputtext" placeholder="Type something here...">
+    <p id="outputtext">Your text will appear here...</p>
+
+    <script>
+        const input = document.getElementById('inputtext');
+        const output = document.getElementById('outputtext');
+
+        output.style.color = "red";
+        input.addEventListener('input', () => {
+            const value = input.value.trim();
+
+
+            if (value) {
+                output.textContent = value;
+                output.style.color = 'yellow'; //normal color when typing
+            } else {
+                output.textContent = "your text will appear here...";
+                output.style.color = 'red';
+            }
+        });
+        //Focus and blur
+        input.addEventListener('focus', () => {
+            input.classList.add("focused")
+        });
+
+        input.addEventListener("blur", () => {
+            input.classList.remove("focused")
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>
