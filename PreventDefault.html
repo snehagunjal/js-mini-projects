@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent Default Example</title>
+    <style>
+        .cart {
+            background: #fff;
+            padding: 25px;
+            width: 320px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 10vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 330px;
+            text-align: center;
+            box-shadow: 4px 8px 8px white(0, 123, 255, 0.5);
+
+        }
+
+        input {
+
+            padding: 8px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input.focused {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            padding: 8px;
+            border-radius: 10px;
+
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Apply Coupon (Event - preventDefault,focus and blur)</h2>
+
+    <div class="cart">
+        <p><strong>Product:</strong> Wireless Mouse</p>
+        <p><strong>Price:</strong> 💲150</p>
+
+        <form id="couponForm">
+            <input type="text" id="coupon" placeholder="Enter Coupon Code">
+            <button type="submit">Apply</button>
+        </form>
+
+        <div class="message" id="msg"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById("couponForm");
+        const msg = document.getElementById("msg");
+        const input = document.getElementById("coupon");
+
+        // Focus & blur events
+        input.addEventListener("focus", () => {
+            input.classList.add("focused");
+        });
+
+        input.addEventListener("blur", () => {
+            input.classList.remove("focused");
+        });
+
+        // Prevent default form submission
+        form.addEventListener("submit", (event) => {
+            event.preventDefault(); // Stops page refresh
+
+            const code = input.value.trim(); //trim - removes white spaces from back and front side.
+
+            if (code === "SAVE20") {
+                msg.style.color = "green";
+                msg.textContent = "Coupon Applied! You saved ₹200!";
+            } else if (code === "") {
+                msg.style.color = "red";
+                msg.textContent = "Please enter a coupon code.";
+            } else {
+                msg.style.color = "orange";
+                msg.textContent = "Invalid code. Try SAVE20.";
+            }
+        });
+    </script>
+</body>
+
+</html>
