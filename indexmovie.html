@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Explorer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: url('https://m.media-amazon.com/images/I/91armhHyTML.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dark overlay for cinematic look */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+      padding: 40px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      color: #00b4ff;
+      text-shadow: 0 0 20px rgba(0,180,255,0.6);
+    }
+
+    p {
+      color: #ddd;
+      margin-bottom: 25px;
+      font-size: 1.2rem;
+    }
+
+    button {
+      background: linear-gradient(90deg, #00b4ff, #0077ff);
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0,180,255,0.5);
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(0,180,255,0.8);
+      background: linear-gradient(90deg, #0077ff, #00b4ff);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.9rem;
+      color: #aaa;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="content">
+    <h1>🎥 Movie Explorer</h1>
+    <p>Ready to dive into a world of stories, thrill, and magic?</p>
+    <button onclick="window.location.href='Movie_Search_App.html'">Enter Movie World</button>
+  </div>
+
+  <footer>© 2025 Movie Explorer | Designed by Neha Gunjal</footer>
+</body>
+</html>
